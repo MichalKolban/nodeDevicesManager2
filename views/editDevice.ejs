@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Device</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" integrity="sha512-EZLkOqwILORob+p0BXZc+Vm3RgJBOe1Iq/0fiI7r/wJgzOFZMlsqTa29UEl6v6U6gsV4uIpsNZoV32YZqrCRCQ==" crossorigin="anonymous" />
+</head>
+<body>
+<div class="container">
+    <h2>EDIT DEVICE</h2>
+
+    <form action="/" method="POST">
+        
+        <div>
+            <label for="name" class="three columns">Device name </label>
+            <input type="text" name="name" id="name" class="nine columns">
+        </div>
+        <div>
+            <label for="company" class="three columns">Company name </label>
+            <input type="text" name="company" id="company" class="nine columns">
+        </div>
+        <div>
+            <label for="quantity" class="three columns">Quantity</label>
+            <input type="number" name="quantity" id="quantity" class="nine columns">
+        </div>
+        <div>
+            <label for="price" class="three columns" >Price</label>
+            <input type="number" name="price" id="price" class="nine columns">
+        </div>
+        <div>
+            <label for="imgString" class="three columns">link to img</label>
+            <input type="text" name="imgString" id="imgString" class="nine columns">
+        </div>
+
+        <a href="/" class="button five columns">Cancel</a>
+        <button type="submit" class="button-primary five columns">Save</button>
+    </form>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devices Manager</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" integrity="sha512-EZLkOqwILORob+p0BXZc+Vm3RgJBOe1Iq/0fiI7r/wJgzOFZMlsqTa29UEl6v6U6gsV4uIpsNZoV32YZqrCRCQ==" crossorigin="anonymous" />
+</head>
+<body>
+
+    <div class="container">
+
+    <h2>Devices Manager</h2>
+
+    <a href="/addNewDevice" class="button button-primary">Add new Device</a>
+
+   
+    <table class="u-full-width">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Company</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Img</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% devices.forEach(device => { %> 
+            <tr>
+                <td><%= device.name %></td>
+                <td><%= device.company %></td>
+                <td><%= device.quantity %></td>
+                <td><%= device.price %> $</td>
+                <td><img src="<%= device.imgString %>" width="100" height="90"></td>
+                <td><a href="<%= device.id %>" class="button button-primary">Edit</a></td>
+                <td><form action="/<%= device.id %>?_method=DELETE" method="POST">
+                    <button type="submit" class="button">Delete</button>
+                    </form></td>
+            </tr>
+            <% }) %> 
+        </tbody>
+</table>
+</div>
+
+</body>
+</html>
