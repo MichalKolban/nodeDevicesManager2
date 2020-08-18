@@ -10,27 +10,27 @@
 <div class="container">
     <h2>EDIT DEVICE</h2>
 
-    <form action="/" method="POST">
+    <form action="/<%= device.id %>?_method=PUT" method="POST">
         
         <div>
             <label for="name" class="three columns">Device name </label>
-            <input type="text" name="name" id="name" class="nine columns">
+            <input value="<%= device.name %>" type="text" name="name" id="name" class="nine columns">
         </div>
         <div>
             <label for="company" class="three columns">Company name </label>
-            <input type="text" name="company" id="company" class="nine columns">
+            <input value="<%= device.company %>" type="text" name="company" id="company" class="nine columns">
         </div>
         <div>
             <label for="quantity" class="three columns">Quantity</label>
-            <input type="number" name="quantity" id="quantity" class="nine columns">
+            <input value="<%= device.quantity %>" type="number" name="quantity" id="quantity" class="nine columns">
         </div>
         <div>
             <label for="price" class="three columns" >Price</label>
-            <input type="number" name="price" id="price" class="nine columns">
+            <input value="<%= device.price %>" type="number" name="price" id="price" class="nine columns">
         </div>
         <div>
             <label for="imgString" class="three columns">link to img</label>
-            <input type="text" name="imgString" id="imgString" class="nine columns">
+            <input value="<%= device.imgString %>" type="text" name="imgString" id="imgString" class="nine columns">
         </div>
 
         <a href="/" class="button five columns">Cancel</a>

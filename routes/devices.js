@@ -40,25 +40,29 @@ router.get('/:id', async (req,res) => {
 
     console.log(req.params.id)
     const device = await DeviceModel.findOne({_id: req.params.id})
-    console.log(device)
-    // console.log(req.body.name)
-    // console.log(req.body.company)
-    // res.render('/editDevice', {device: device})
-    res.render('editDevice')
+    res.render('editDevice', {device: device})
 })
 
 
-router.put('/:id', async (req,res) => {
-    let oldDevice = await DeviceModel.findById(req.params.id)
-    console.log('hello from put ' + req.body)
-    console.log('old device  ' + oldDevice)
-    
-    oldDevice.name = req.body.name
-    oldDevice.company = req.body.company
-    oldDevice.quantity = req.body.quantity
-    oldDevice.price = req.body.price
-    oldDevice.imgString = req.body.imgString
+router.put('/:id', async (req, res) => {
+    let editDevice = await DeviceModel.findById(req.params.id)
 
+    editDevice.name = req.body.name
+    editDevice.company = req.body.company
+    editDevice.quantity = req.body.quantity
+    editDevice.price = req.body.price
+    editDevice.imgString = req.body.imgString
+    // check if comapny is validate
+    try {
+        editDevice = await editDevice.save()
+        console.log('data saved in mongo db')
+        res.redirect('/')
+    } catch (err) {
+        console.log(err)
+        res.redirect('/')
+    }
+
+    res.redirect('/')
 })
 
 router.delete('/:id', async(req,res) => {
@@ -66,20 +70,11 @@ router.delete('/:id', async(req,res) => {
     res.redirect('/')
 })
 
-
-
 // validate functions
 
 function checkCompany(name){
-
-    const compArr = ['Apple', 'Google', 'LG', 'Sony'];
-
-    if(compArr.includes(name)){
-        return true;
-    }else {
-        return false;
-    }
-
+    const companyArr = ['Apple', 'Google', 'LG', 'Sony'];
+    return companyArr.includes(name) ? true : false;
 }
 
 module.exports = router
